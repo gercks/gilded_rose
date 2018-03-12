@@ -6,7 +6,7 @@ class RoomTest < ActiveSupport::TestCase
   end
 
   def guest
-    @guest ||= guests(:foxmatt)
+    @guest ||= guests(:eliza)
   end
 
   test "#valid?" do
@@ -20,10 +20,4 @@ class RoomTest < ActiveSupport::TestCase
     assert room.available_for?(guest)
   end
 
-  # test "#available? with guests only" do
-  #   room.save!
-  #   assert room.available?, "room is not available"
-  #   2.times { room.bookings.create(guest: guest) }
-  #   refute room.available?, "room is available but shouldn't be"
-  # end
 end

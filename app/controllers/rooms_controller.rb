@@ -2,12 +2,14 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   def index
+
   bags = params[:bags] # 1
   beds = params[:beds] # 1
-  # @available_for? = Room.available_for?(params)
+
   guest = Guest.new(bags: bags)
-  room = Room.find(params[:id])
-  @rooms = Room.find_each.select { |r| room.available_for?(guest) }
+  room = Room.new(beds: beds)
+
+  @rooms = Room.find_each.select { |r| Room.available_for?(params) }
 end
 
   # GET /rooms/1
